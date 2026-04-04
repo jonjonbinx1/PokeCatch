@@ -1,0 +1,112 @@
+{
+    "aegislash-shield": {
+        "width": 185,
+        "offsetX": 11,
+        "offsetY": -11
+    },
+    "basculegion-female": {
+        "width": 172,
+        "offsetX": 0,
+        "offsetY": 0
+    },
+    "basculegion-male": {
+        "width": 179,
+        "offsetX": 0,
+        "offsetY": 0
+    },
+    "basculin-blue-striped": {
+        "width": 142,
+        "offsetX": 0,
+        "offsetY": 10
+    },
+    "basculin-red-striped": {
+        "width": 152,
+        "offsetX": 0,
+        "offsetY": 13
+    },
+    "basculin-white-striped": {
+        "width": 174,
+        "offsetX": 0,
+        "offsetY": 22
+    },
+    "blastoise-gmax": {
+        "width": 184,
+        "offsetX": 0,
+        "offsetY": -20
+    },
+    "brute-bonnet": {
+        "width": 174,
+        "offsetX": 0,
+        "offsetY": 8
+    },
+    "charizard-mega-x": {
+        "width": 149,
+        "offsetX": 20,
+        "offsetY": -21
+    },
+    "chi-yu": {
+        "width": 175,
+        "offsetX": 0,
+        "offsetY": 24
+    },
+    "cinderace-gmax": {
+        "width": 184,
+        "offsetX": 38,
+        "offsetY": -30
+    },
+    "darmanitan-galar-standard": {
+        "width": 133,
+        "offsetX": 0,
+        "offsetY": 0
+    },
+    "darmanitan-galar-zen": {
+        "width": 143,
+        "offsetX": 0,
+        "offsetY": 8
+    },
+    "darmanitan-standard": {
+        "width": 142,
+        "offsetX": 0,
+        "offsetY": 0
+    },
+    "deoxys-normal": {
+        "width": 151,
+        "offsetX": 0,
+        "offsetY": -13
+    },
+    "dialga-origin": {
+        "width": 126,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "dudunsparce-three-segment": {
+        "width": 119,
+        "offsetX": 0,
+        "offsetY": 0
+    },
+    "dudunsparce-two-segment": {
+        "width": 119,
+        "offsetX": 0,
+        "offsetY": 0
+    },
+    "eiscue-ice": {
+        "width": 120,
+        "offsetX": 0,
+        "offsetY": -21
+    },
+    "fezandipiti": {
+        "width": 137,
+        "offsetX": 0,
+        "offsetY": -19
+    },
+    "frillish-male": {
+        "width": 102,
+        "offsetX": 0,
+        "offsetY": -21
+    },
+    "giratina-altered": {
+        "width": 184,
+        "offsetX": 0,
+        "offsetY": -8
+    }
+}

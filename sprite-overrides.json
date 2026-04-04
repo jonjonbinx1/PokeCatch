@@ -1,0 +1,2076 @@
+{
+    "abomasnow": {
+        "width": 218,
+        "offsetX": -3,
+        "offsetY": -40
+    },
+    "abomasnow-mega": {
+        "width": 213,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "abra": {
+        "width": 138,
+        "offsetX": 15,
+        "offsetY": -30
+    },
+    "absol": {
+        "width": 115,
+        "offsetX": -5,
+        "offsetY": -34
+    },
+    "absol-mega": {
+        "width": 150,
+        "offsetX": 3,
+        "offsetY": -29
+    },
+    "absol-mega-z": {
+        "width": 125,
+        "offsetX": -15,
+        "offsetY": -36
+    },
+    "accelgor": {
+        "width": 143,
+        "offsetX": 50,
+        "offsetY": -33
+    },
+    "aegislash-blade": {
+        "offsetX": 3,
+        "offsetY": -23,
+        "width": 130
+    },
+    "aerodactyl": {
+        "width": 276,
+        "offsetX": -12,
+        "offsetY": -30
+    },
+    "aerodactyl-mega": {
+        "width": 221,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "aggron": {
+        "width": 171,
+        "offsetX": -8,
+        "offsetY": -29
+    },
+    "aggron-mega": {
+        "width": 180,
+        "offsetX": -1,
+        "offsetY": -30
+    },
+    "aipom": {
+        "width": 93,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "alakazam": {
+        "width": 128,
+        "offsetX": -12,
+        "offsetY": -32
+    },
+    "alakazam-mega": {
+        "width": 184,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "alcremie": {
+        "width": 82,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "alcremie-gmax": {
+        "width": 149,
+        "offsetX": 0,
+        "offsetY": -25
+    },
+    "alomomola": {
+        "width": 66,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "altaria": {
+        "width": 188,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "altaria-mega": {
+        "width": 183,
+        "offsetX": 0,
+        "offsetY": 28
+    },
+    "amaura": {
+        "offsetX": -14,
+        "offsetY": -34,
+        "width": 84
+    },
+    "ambipom": {
+        "width": 173,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "amoonguss": {
+        "width": 116,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "ampharos": {
+        "width": 89,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "ampharos-mega": {
+        "width": 145,
+        "offsetX": 48,
+        "offsetY": -32
+    },
+    "annihilape": {
+        "width": 146,
+        "offsetX": 0,
+        "offsetY": -32
+    },
+    "anorith": {
+        "width": 113,
+        "offsetX": 0,
+        "offsetY": -25
+    },
+    "appletun": {
+        "width": 85,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "appletun-gmax": {
+        "width": 151,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "applin": {
+        "width": 68,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "araquanid": {
+        "width": 124,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "araquanid-totem": {
+        "width": 139,
+        "offsetX": 0,
+        "offsetY": -25
+    },
+    "arbok": {
+        "width": 139,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "arboliva": {
+        "width": 110,
+        "offsetX": 0,
+        "offsetY": -32
+    },
+    "arcanine": {
+        "width": 111,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "arcanine-hisui": {
+        "width": 135,
+        "offsetX": 0,
+        "offsetY": -32
+    },
+    "arceus": {
+        "width": 115,
+        "offsetX": 14,
+        "offsetY": -30
+    },
+    "archaludon": {
+        "width": 121,
+        "offsetX": 0,
+        "offsetY": -37
+    },
+    "archen": {
+        "width": 145,
+        "offsetX": 0,
+        "offsetY": -37
+    },
+    "archeops": {
+        "width": 173,
+        "offsetX": 0,
+        "offsetY": -45
+    },
+    "arctibax": {
+        "width": 84,
+        "offsetX": 0,
+        "offsetY": -41
+    },
+    "arctovish": {
+        "width": 106,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "arctozolt": {
+        "width": 94,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "ariados": {
+        "width": 139,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "armaldo": {
+        "width": 130,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "armarouge": {
+        "width": 88,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "aromatisse": {
+        "width": 93,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "aron": {
+        "width": 66,
+        "offsetX": -12,
+        "offsetY": -36
+    },
+    "arrokuda": {
+        "width": 117,
+        "offsetX": -4,
+        "offsetY": -36
+    },
+    "articuno": {
+        "width": 227,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "articuno-galar": {
+        "width": 145,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "audino": {
+        "width": 107,
+        "offsetX": 0,
+        "offsetY": -40
+    },
+    "audino-mega": {
+        "width": 110,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "aurorus": {
+        "width": 111,
+        "offsetX": -16,
+        "offsetY": -35
+    },
+    "avalugg": {
+        "width": 153,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "avalugg-hisui": {
+        "width": 171,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "axew": {
+        "width": 80,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "azelf": {
+        "width": 148,
+        "offsetX": 29,
+        "offsetY": -19
+    },
+    "azumarill": {
+        "width": 129,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "azurill": {
+        "width": 70,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "bagon": {
+        "width": 68,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "baltoy": {
+        "width": 120,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "banette": {
+        "width": 108,
+        "offsetX": 0,
+        "offsetY": -40
+    },
+    "banette-mega": {
+        "width": 174,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "barbaracle": {
+        "width": 158,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "barboach": {
+        "width": 91,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "barraskewda": {
+        "width": 134,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "bastiodon": {
+        "width": 142,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "baxcalibur": {
+        "width": 186,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "bayleef": {
+        "width": 108,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "beartic": {
+        "width": 162,
+        "offsetX": 0,
+        "offsetY": -41
+    },
+    "beautifly": {
+        "width": 120,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "beedrill": {
+        "width": 120,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "beedrill-mega": {
+        "width": 149,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "beheeyem": {
+        "width": 91,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "beldum": {
+        "width": 96,
+        "offsetX": 0,
+        "offsetY": -41
+    },
+    "bellibolt": {
+        "width": 111,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "bellossom": {
+        "width": 89,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "bellsprout": {
+        "width": 107,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "bergmite": {
+        "width": 85,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "bewear": {
+        "width": 124,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "bibarel": {
+        "width": 133,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "bidoof": {
+        "width": 233,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "binacle": {
+        "width": 115,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "bisharp": {
+        "width": 84,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "blacephalon": {
+        "width": 121,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "blastoise": {
+        "width": 122,
+        "offsetX": -15,
+        "offsetY": -29
+    },
+    "blastoise-mega": {
+        "width": 144,
+        "offsetX": -11,
+        "offsetY": -31
+    },
+    "blaziken": {
+        "width": 115,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "blaziken-mega": {
+        "width": 176,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "blipbug": {
+        "width": 82,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "blissey": {
+        "width": 142,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "blitzle": {
+        "width": 73,
+        "offsetX": -11,
+        "offsetY": -35
+    },
+    "boldore": {
+        "width": 115,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "boltund": {
+        "width": 84,
+        "offsetX": -8,
+        "offsetY": -29
+    },
+    "bombirdier": {
+        "width": 214,
+        "offsetX": 0,
+        "offsetY": -49
+    },
+    "bonsly": {
+        "width": 80,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "bouffalant": {
+        "width": 142,
+        "offsetX": -25,
+        "offsetY": -29
+    },
+    "bounsweet": {
+        "width": 102,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "braixen": {
+        "width": 116,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "brambleghast": {
+        "width": 128,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "bramblin": {
+        "width": 96,
+        "offsetX": 0,
+        "offsetY": -25
+    },
+    "braviary": {
+        "width": 228,
+        "offsetX": 0,
+        "offsetY": -22
+    },
+    "braviary-hisui": {
+        "width": 217,
+        "offsetX": 0,
+        "offsetY": -44
+    },
+    "breloom": {
+        "width": 112,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "brionne": {
+        "width": 87,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "bronzong": {
+        "width": 124,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "bronzor": {
+        "width": 83,
+        "offsetX": 0,
+        "offsetY": -17
+    },
+    "bruxish": {
+        "width": 112,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "budew": {
+        "width": 91,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "buizel": {
+        "width": 102,
+        "offsetX": 29,
+        "offsetY": -29
+    },
+    "bulbasaur": {
+        "width": 79,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "buneary": {
+        "width": 100,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "bunnelby": {
+        "width": 87,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "burmy": {
+        "width": 94,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "butterfree": {
+        "width": 145,
+        "offsetX": 0,
+        "offsetY": -20
+    },
+    "butterfree-gmax": {
+        "width": 283,
+        "offsetX": 0,
+        "offsetY": -26
+    },
+    "buzzwole": {
+        "width": 126,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "cacnea": {
+        "width": 142,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "cacturne": {
+        "width": 148,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "calyrex": {
+        "width": 75,
+        "offsetX": -3,
+        "offsetY": -31
+    },
+    "calyrex-ice": {
+        "width": 121,
+        "offsetX": 0,
+        "offsetY": -26
+    },
+    "calyrex-shadow": {
+        "width": 125,
+        "offsetX": -10,
+        "offsetY": -27
+    },
+    "camerupt": {
+        "width": 115,
+        "offsetX": -12,
+        "offsetY": -33
+    },
+    "camerupt-mega": {
+        "width": 117,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "capsakid": {
+        "width": 56,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "carbink": {
+        "width": 80,
+        "offsetX": 0,
+        "offsetY": -21
+    },
+    "carkol": {
+        "width": 96,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "carnivine": {
+        "offsetX": 0,
+        "offsetY": 0
+    },
+    "carracosta": {
+        "width": 88,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "carvanha": {
+        "width": 91,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "cascoon": {
+        "width": 74,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "castform": {
+        "width": 63,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "castform-rainy": {
+        "width": 69,
+        "offsetX": 0,
+        "offsetY": -39
+    },
+    "castform-snowy": {
+        "width": 94,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "castform-sunny": {
+        "width": 82,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "caterpie": {
+        "width": 82,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "celebi": {
+        "width": 111,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "celesteela": {
+        "width": 190,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "centiskorch": {
+        "width": 105,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "centiskorch-gmax": {
+        "width": 196,
+        "offsetX": -34,
+        "offsetY": -31
+    },
+    "ceruledge": {
+        "width": 103,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "cetitan": {
+        "width": 202,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "cetoddle": {
+        "width": 129,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "chandelure": {
+        "width": 176,
+        "offsetX": 0,
+        "offsetY": -45
+    },
+    "chansey": {
+        "width": 101,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "charcadet": {
+        "width": 42,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "charizard": {
+        "width": 174,
+        "offsetX": 12,
+        "offsetY": -41
+    },
+    "charizard-gmax": {
+        "width": 179,
+        "offsetX": 17,
+        "offsetY": -31
+    },
+    "charjabug": {
+        "offsetX": 0,
+        "offsetY": -33,
+        "width": 83
+    },
+    "charmander": {
+        "width": 66,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "charmeleon": {
+        "width": 77,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "chatot": {
+        "width": 77,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "cherrim": {
+        "width": 64,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "cherubi": {
+        "width": 80,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "chesnaught": {
+        "width": 124,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "chespin": {
+        "width": 64,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "chewtle": {
+        "width": 61,
+        "offsetX": -12,
+        "offsetY": -29
+    },
+    "chikorita": {
+        "width": 52,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "chimchar": {
+        "width": 82,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "chimecho": {
+        "width": 92,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "chinchou": {
+        "width": 105,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "chingling": {
+        "width": 82,
+        "offsetX": 0,
+        "offsetY": 0
+    },
+    "cinccino": {
+        "width": 120,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "cinderace": {
+        "width": 69,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "clamperl": {
+        "width": 101,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "clauncher": {
+        "width": 124,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "clawitzer": {
+        "width": 176,
+        "offsetX": 19,
+        "offsetY": -26
+    },
+    "claydol": {
+        "width": 133,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "clefable": {
+        "width": 112,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "clefable-mega": {
+        "width": 228,
+        "offsetX": 7,
+        "offsetY": -31
+    },
+    "clefairy": {
+        "width": 112,
+        "offsetX": -10,
+        "offsetY": -33
+    },
+    "cleffa": {
+        "width": 85,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "clobbopus": {
+        "width": 110,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "clodsire": {
+        "width": 126,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "cloyster": {
+        "width": 100,
+        "offsetX": 0,
+        "offsetY": -24
+    },
+    "coalossal": {
+        "width": 116,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "coalossal-gmax": {
+        "width": 143,
+        "offsetX": 0,
+        "offsetY": -26
+    },
+    "cobalion": {
+        "width": 91,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "cofagrigus": {
+        "width": 194,
+        "offsetX": -19,
+        "offsetY": -35
+    },
+    "combee": {
+        "width": 144,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "combusken": {
+        "width": 89,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "comfey": {
+        "width": 101,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "conkeldurr": {
+        "width": 176,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "copperajah": {
+        "width": 108,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "copperajah-gmax": {
+        "width": 120,
+        "offsetX": -13,
+        "offsetY": -22
+    },
+    "corphish": {
+        "width": 93,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "corsola": {
+        "width": 97,
+        "offsetX": 17,
+        "offsetY": -30
+    },
+    "corsola-galar": {
+        "width": 105,
+        "offsetX": 0,
+        "offsetY": -26
+    },
+    "corviknight": {
+        "width": 209,
+        "offsetX": 0,
+        "offsetY": -20
+    },
+    "corviknight-gmax": {
+        "width": 230,
+        "offsetX": 36,
+        "offsetY": -33
+    },
+    "corvisquire": {
+        "width": 151,
+        "offsetX": 0,
+        "offsetY": -20
+    },
+    "cosmoem": {
+        "width": 78,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "cosmog": {
+        "width": 110,
+        "offsetX": 25,
+        "offsetY": -34
+    },
+    "cottonee": {
+        "width": 105,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "crabominable": {
+        "width": 154,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "crabrawler": {
+        "width": 103,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "cradily": {
+        "width": 108,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "cramorant": {
+        "width": 111,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "cramorant-gorging": {
+        "width": 125,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "cramorant-gulping": {
+        "width": 124,
+        "offsetX": 20,
+        "offsetY": -31
+    },
+    "cranidos": {
+        "width": 80,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "crawdaunt": {
+        "width": 152,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "cresselia": {
+        "width": 147,
+        "offsetX": 0,
+        "offsetY": -39
+    },
+    "croagunk": {
+        "width": 97,
+        "offsetX": 0,
+        "offsetY": -39
+    },
+    "crobat": {
+        "width": 189,
+        "offsetX": 0,
+        "offsetY": -21
+    },
+    "crocalor": {
+        "width": 105,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "croconaw": {
+        "width": 83,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "crustle": {
+        "width": 116,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "cryogonal": {
+        "width": 97,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "cubchoo": {
+        "width": 79,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "cubone": {
+        "width": 84,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "cufant": {
+        "width": 103,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "cursola": {
+        "width": 135,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "cutiefly": {
+        "width": 87,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "cyclizar": {
+        "width": 117,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "cyndaquil": {
+        "width": 61,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "dachsbun": {
+        "width": 91,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "darkrai": {
+        "width": 125,
+        "offsetX": 22,
+        "offsetY": -26
+    },
+    "darmanitan-zen": {
+        "width": 87,
+        "offsetX": 7,
+        "offsetY": -29
+    },
+    "dartrix": {
+        "width": 68,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "darumaka": {
+        "width": 102,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "darumaka-galar": {
+        "width": 102,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "decidueye": {
+        "width": 88,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "decidueye-hisui": {
+        "width": 89,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "dedenne": {
+        "width": 96,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "deerling": {
+        "offsetX": 0,
+        "offsetY": -25,
+        "width": 84
+    },
+    "deino": {
+        "width": 80,
+        "offsetX": -8,
+        "offsetY": -29
+    },
+    "delcatty": {
+        "width": 101,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "delibird": {
+        "width": 110,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "delphox": {
+        "width": 157,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "deoxys-attack": {
+        "width": 147,
+        "offsetX": 16,
+        "offsetY": -26
+    },
+    "deoxys-defense": {
+        "width": 114,
+        "offsetX": -12,
+        "offsetY": -29
+    },
+    "deoxys-speed": {
+        "width": 115,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "dewgong": {
+        "width": 170,
+        "offsetX": 0,
+        "offsetY": -20
+    },
+    "dewott": {
+        "width": 78,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "dewpider": {
+        "width": 91,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "dhelmise": {
+        "width": 91,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "dialga": {
+        "width": 114,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "diancie": {
+        "width": 92,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "diancie-mega": {
+        "width": 129,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "diggersby": {
+        "width": 121,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "diglett": {
+        "width": 91,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "diglett-alola": {
+        "width": 84,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "dipplin": {
+        "width": 84,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "ditto": {
+        "width": 80,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "dodrio": {
+        "width": 78,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "doduo": {
+        "width": 63,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "dolliv": {
+        "width": 64,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "dondozo": {
+        "width": 185,
+        "offsetX": 0,
+        "offsetY": -13
+    },
+    "donphan": {
+        "width": 125,
+        "offsetX": 0,
+        "offsetY": -26
+    },
+    "dottler": {
+        "width": 94,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "doublade": {
+        "width": 135,
+        "offsetX": 0,
+        "offsetY": -24
+    },
+    "dracovish": {
+        "width": 82,
+        "offsetX": 0,
+        "offsetY": -24
+    },
+    "dracozolt": {
+        "width": 135,
+        "offsetX": 26,
+        "offsetY": -30
+    },
+    "dragalge": {
+        "width": 167,
+        "offsetX": 0,
+        "offsetY": 15
+    },
+    "dragapult": {
+        "width": 134,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "dragonair": {
+        "width": 112,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "dragonite": {
+        "width": 121,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "dragonite-mega": {
+        "width": 156,
+        "offsetX": 0,
+        "offsetY": -26
+    },
+    "drakloak": {
+        "width": 112,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "drampa": {
+        "width": 121,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "drapion": {
+        "width": 143,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "dratini": {
+        "width": 79,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "drednaw": {
+        "width": 112,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "drednaw-gmax": {
+        "width": 163,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "dreepy": {
+        "width": 87,
+        "offsetX": 0,
+        "offsetY": -21
+    },
+    "drifblim": {
+        "width": 77,
+        "offsetX": 0,
+        "offsetY": -25
+    },
+    "drifloon": {
+        "width": 57,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "drilbur": {
+        "width": 87,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "drizzile": {
+        "width": 80,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "drowzee": {
+        "width": 85,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "druddigon": {
+        "width": 130,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "dubwool": {
+        "width": 85,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "ducklett": {
+        "width": 63,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "dugtrio": {
+        "width": 85,
+        "offsetX": 0,
+        "offsetY": -26
+    },
+    "dugtrio-alola": {
+        "width": 103,
+        "offsetX": 12,
+        "offsetY": -33
+    },
+    "dunsparce": {
+        "width": 94,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "duosion": {
+        "width": 68,
+        "offsetX": 0,
+        "offsetY": -26
+    },
+    "duraludon": {
+        "width": 94,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "duraludon-gmax": {
+        "width": 120,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "durant": {
+        "width": 102,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "dusclops": {
+        "width": 96,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "dusknoir": {
+        "width": 149,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "duskull": {
+        "width": 77,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "dustox": {
+        "width": 125,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "dwebble": {
+        "width": 73,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "eelektrik": {
+        "width": 110,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "eelektross": {
+        "width": 137,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "eevee": {
+        "width": 115,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "eevee-gmax": {
+        "width": 199,
+        "offsetX": -33,
+        "offsetY": -29
+    },
+    "eevee-starter": {
+        "width": 107,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "eiscue-noice": {
+        "width": 89,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "ekans": {
+        "width": 78,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "eldegoss": {
+        "width": 75,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "electabuzz": {
+        "width": 110,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "electivire": {
+        "width": 135,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "electrike": {
+        "width": 89,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "electrode": {
+        "width": 89,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "electrode-hisui": {
+        "width": 101,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "elekid": {
+        "width": 108,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "elgyem": {
+        "width": 54,
+        "offsetX": 0,
+        "offsetY": -25
+    },
+    "emboar": {
+        "width": 122,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "emboar-mega": {
+        "width": 119,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "emolga": {
+        "width": 97,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "empoleon": {
+        "width": 114,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "enamorus-therian": {
+        "width": 140,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "entei": {
+        "width": 94,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "escavalier": {
+        "width": 92,
+        "offsetX": 0,
+        "offsetY": -25
+    },
+    "espathra": {
+        "width": 84,
+        "offsetX": 0,
+        "offsetY": -26
+    },
+    "espeon": {
+        "width": 97,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "espurr": {
+        "width": 73,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "eternatus": {
+        "width": 161,
+        "offsetX": 0,
+        "offsetY": -25
+    },
+    "eternatus-eternamax": {
+        "width": 208,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "excadrill": {
+        "width": 121,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "exeggcute": {
+        "width": 98,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "exeggutor": {
+        "width": 149,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "exeggutor-alola": {
+        "width": 122,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "exploud": {
+        "width": 96,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "falinks": {
+        "width": 121,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "farfetchd": {
+        "width": 79,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "farfetchd-galar": {
+        "width": 126,
+        "offsetX": 0,
+        "offsetY": -26
+    },
+    "farigiraf": {
+        "width": 80,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "fearow": {
+        "width": 154,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "feebas": {
+        "width": 59,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "fennekin": {
+        "width": 65,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "feraligatr": {
+        "width": 82,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "feraligatr-mega": {
+        "width": 96,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "ferroseed": {
+        "width": 64,
+        "offsetX": -8,
+        "offsetY": -34
+    },
+    "ferrothorn": {
+        "width": 110,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "fidough": {
+        "width": 87,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "finizen": {
+        "width": 85,
+        "offsetX": 0,
+        "offsetY": -26
+    },
+    "finneon": {
+        "width": 91,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "flaaffy": {
+        "width": 87,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "flabebe": {
+        "width": 103,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "flamigo": {
+        "width": 52,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "flapple": {
+        "width": 151,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "flapple-gmax": {
+        "width": 85,
+        "offsetX": 0,
+        "offsetY": -39
+    },
+    "flareon": {
+        "width": 63,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "fletchinder": {
+        "width": 108,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "fletchling": {
+        "width": 66,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "flittle": {
+        "width": 65,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "floatzel": {
+        "width": 83,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "floette": {
+        "width": 80,
+        "offsetX": 0,
+        "offsetY": -25
+    },
+    "floette-eternal": {
+        "width": 111,
+        "offsetX": 15,
+        "offsetY": -30
+    },
+    "floragato": {
+        "width": 57,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "florges": {
+        "width": 115,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "flygon": {
+        "width": 121,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "fomantis": {
+        "width": 66,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "foongus": {
+        "width": 77,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "forretress": {
+        "width": 107,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "fraxure": {
+        "width": 114,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "frigibax": {
+        "width": 94,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "froakie": {
+        "width": 69,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "frogadier": {
+        "width": 117,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "froslass": {
+        "width": 96,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "froslass-mega": {
+        "width": 151,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "frosmoth": {
+        "width": 163,
+        "offsetX": 0,
+        "offsetY": -24
+    },
+    "fuecoco": {
+        "width": 68,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "furfrou": {
+        "width": 66,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "furret": {
+        "width": 92,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "gabite": {
+        "width": 96,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "gallade": {
+        "width": 84,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "gallade-mega": {
+        "width": 91,
+        "offsetX": 0,
+        "offsetY": -25
+    },
+    "galvantula": {
+        "width": 111,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "garbodor": {
+        "width": 98,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "garbodor-gmax": {
+        "width": 171,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "garchomp": {
+        "width": 149,
+        "offsetX": 0,
+        "offsetY": -26
+    },
+    "garchomp-mega": {
+        "width": 156,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "gardevoir": {
+        "width": 120,
+        "offsetX": 0,
+        "offsetY": -27
+    },
+    "gardevoir-mega": {
+        "width": 108,
+        "offsetX": 0,
+        "offsetY": -26
+    },
+    "garganacl": {
+        "width": 133,
+        "offsetX": 0,
+        "offsetY": -39
+    },
+    "gastly": {
+        "width": 69,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "gastrodon": {
+        "width": 85,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "genesect": {
+        "width": 92,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "gengar": {
+        "width": 97,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "gengar-gmax": {
+        "width": 167,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "gengar-mega": {
+        "width": 126,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "geodude": {
+        "width": 144,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "geodude-alola": {
+        "width": 124,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "gholdengo": {
+        "width": 137,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "gible": {
+        "width": 103,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "gigalith": {
+        "width": 130,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "gimmighoul": {
+        "width": 77,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "gimmighoul-roaming": {
+        "width": 89,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "girafarig": {
+        "width": 94,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "giratina-origin": {
+        "width": 165,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "glaceon": {
+        "width": 92,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "glalie": {
+        "width": 100,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "glalie-mega": {
+        "width": 78,
+        "offsetX": 0,
+        "offsetY": -35
+    },
+    "glameow": {
+        "width": 84,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "glastrier": {
+        "width": 80,
+        "offsetX": 0,
+        "offsetY": -30
+    },
+    "gligar": {
+        "width": 89,
+        "offsetX": 0,
+        "offsetY": -34
+    },
+    "glimmet": {
+        "width": 69,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "glimmora": {
+        "width": 107,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "gliscor": {
+        "width": 140,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "gloom": {
+        "width": 81,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "gogoat": {
+        "width": 67,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "golbat": {
+        "width": 210,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "goldeen": {
+        "width": 117,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "golduck": {
+        "width": 86,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "golem": {
+        "width": 121,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "golem-alola": {
+        "width": 117,
+        "offsetX": 0,
+        "offsetY": -36
+    },
+    "golett": {
+        "width": 88,
+        "offsetX": 0,
+        "offsetY": -29
+    },
+    "golisopod": {
+        "width": 102,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "golurk": {
+        "width": 107,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "goodra": {
+        "width": 83,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "goodra-hisui": {
+        "width": 93,
+        "offsetX": 0,
+        "offsetY": -24
+    },
+    "goomy": {
+        "width": 52,
+        "offsetX": 0,
+        "offsetY": -31
+    },
+    "gorebyss": {
+        "width": 117,
+        "offsetX": 0,
+        "offsetY": -33
+    },
+    "gossifleur": {
+        "width": 117,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "gothita": {
+        "width": 81,
+        "offsetX": 0,
+        "offsetY": -38
+    },
+    "gothitelle": {
+        "width": 86,
+        "offsetX": 0,
+        "offsetY": -40
+    },
+    "onix": {
+        "width": 420,
+        "offsetX": 20,
+        "offsetY": 10
+    },
+    "snorlax": {
+        "width": 260,
+        "offsetX": 0,
+        "offsetY": -20
+    }
+}
