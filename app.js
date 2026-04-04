@@ -321,14 +321,20 @@ let projectDirectoryHandle = null;
 let localSaveServiceState = localSaveBaseUrl ? "unknown" : "unavailable";
 
 async function loadSpriteOverrides() {
+  const baseUrl = (typeof import.meta !== "undefined" && import.meta.url) ? new URL(".", import.meta.url).href : window.location.href;
+
+  // compute asset URLs relative to the module/document
+  const spriteOverridesUrl = new URL("sprite-overrides.json", baseUrl).href;
+  const staticOverridesUrl = new URL("static-sprite-overrides.json", baseUrl).href;
+
   // load animated/general overrides
   try {
-    const resp = await fetch('/sprite-overrides.json');
+    const resp = await fetch(spriteOverridesUrl);
     if (resp.ok) {
       spriteOverrides = await resp.json();
-      if (debugMode) addDebugMessage(`[OVRD] loaded ${Object.keys(spriteOverrides).length} overrides from /sprite-overrides.json`);
+      if (debugMode) addDebugMessage(`[OVRD] loaded ${Object.keys(spriteOverrides).length} overrides from ${spriteOverridesUrl}`);
     } else {
-      if (debugMode) addDebugMessage('[OVRD] no /sprite-overrides.json found');
+      if (debugMode) addDebugMessage(`[OVRD] no ${spriteOverridesUrl} found`);
     }
   } catch (e) {
     if (debugMode) addDebugMessage(`[OVRD] load failed: ${e.message}`);
@@ -336,12 +342,12 @@ async function loadSpriteOverrides() {
 
   // load static-only overrides (separate file)
   try {
-    const resp2 = await fetch('/static-sprite-overrides.json');
+    const resp2 = await fetch(staticOverridesUrl);
     if (resp2.ok) {
       staticSpriteOverrides = await resp2.json();
-      if (debugMode) addDebugMessage(`[OVRD] loaded ${Object.keys(staticSpriteOverrides).length} static overrides from /static-sprite-overrides.json`);
+      if (debugMode) addDebugMessage(`[OVRD] loaded ${Object.keys(staticSpriteOverrides).length} static overrides from ${staticOverridesUrl}`);
     } else {
-      if (debugMode) addDebugMessage('[OVRD] no /static-sprite-overrides.json found');
+      if (debugMode) addDebugMessage(`[OVRD] no ${staticOverridesUrl} found`);
     }
   } catch (e) {
     if (debugMode) addDebugMessage(`[OVRD] static load failed: ${e.message}`);
