@@ -320,21 +320,63 @@ let projectHandleDbPromise = null;
 let projectDirectoryHandle = null;
 let localSaveServiceState = localSaveBaseUrl ? "unknown" : "unavailable";
 
-async function loadSpriteOverrides() {
-  const baseUrl = (typeof import.meta !== "undefined" && import.meta.url) ? new URL(".", import.meta.url).href : window.location.href;
+async function fetchJsonWithFallback(urls) {
+  for (const u of urls) {
+    try {
+      const resp = await fetch(u);
+      if (resp.ok) {
+        const data = await resp.json();
+        if (debugMode) addDebugMessage(`[OVRD] fetched ${u}`);
+        return { data, url: u };
+      } else {
+        if (debugMode) addDebugMessage(`[OVRD] not found ${u} (${resp.status})`);
+      }
+    } catch (e) {
+      if (debugMode) addDebugMessage(`[OVRD] fetch ${u} failed: ${e.message}`);
+    }
+  }
+  return null;
+}
 
-  // compute asset URLs relative to the module/document
-  const spriteOverridesUrl = new URL("sprite-overrides.json", baseUrl).href;
-  const staticOverridesUrl = new URL("static-sprite-overrides.json", baseUrl).href;
+async function loadSpriteOverrides() {
+  let baseUrl = null;
+  if (typeof import.meta !== "undefined" && import.meta.url) {
+    baseUrl = new URL(".", import.meta.url).href;
+  } else {
+    const script = document.querySelector('script[type="module"][src]');
+    if (script && script.src) {
+      baseUrl = new URL(".", script.src).href;
+    } else if (document.baseURI) {
+      baseUrl = document.baseURI;
+    } else {
+      baseUrl = window.location.href;
+    }
+  }
+
+  const makeCandidates = (filename) => {
+    const list = [];
+    try {
+      list.push(new URL(filename, baseUrl).href);
+    } catch (e) {}
+    try {
+      list.push(new URL(filename, window.location.href).href);
+    } catch (e) {}
+    try {
+      list.push(new URL('/' + filename, window.location.origin).href);
+    } catch (e) {}
+    list.push(filename);
+    return Array.from(new Set(list));
+  };
 
   // load animated/general overrides
   try {
-    const resp = await fetch(spriteOverridesUrl);
-    if (resp.ok) {
-      spriteOverrides = await resp.json();
-      if (debugMode) addDebugMessage(`[OVRD] loaded ${Object.keys(spriteOverrides).length} overrides from ${spriteOverridesUrl}`);
+    const spriteUrls = makeCandidates('sprite-overrides.json');
+    const spriteResult = await fetchJsonWithFallback(spriteUrls);
+    if (spriteResult && spriteResult.data) {
+      spriteOverrides = spriteResult.data;
+      if (debugMode) addDebugMessage(`[OVRD] loaded ${Object.keys(spriteOverrides).length} overrides from ${spriteResult.url}`);
     } else {
-      if (debugMode) addDebugMessage(`[OVRD] no ${spriteOverridesUrl} found`);
+      if (debugMode) addDebugMessage('[OVRD] no sprite-overrides.json found');
     }
   } catch (e) {
     if (debugMode) addDebugMessage(`[OVRD] load failed: ${e.message}`);
@@ -342,12 +384,13 @@ async function loadSpriteOverrides() {
 
   // load static-only overrides (separate file)
   try {
-    const resp2 = await fetch(staticOverridesUrl);
-    if (resp2.ok) {
-      staticSpriteOverrides = await resp2.json();
-      if (debugMode) addDebugMessage(`[OVRD] loaded ${Object.keys(staticSpriteOverrides).length} static overrides from ${staticOverridesUrl}`);
+    const staticUrls = makeCandidates('static-sprite-overrides.json');
+    const staticResult = await fetchJsonWithFallback(staticUrls);
+    if (staticResult && staticResult.data) {
+      staticSpriteOverrides = staticResult.data;
+      if (debugMode) addDebugMessage(`[OVRD] loaded ${Object.keys(staticSpriteOverrides).length} static overrides from ${staticResult.url}`);
     } else {
-      if (debugMode) addDebugMessage(`[OVRD] no ${staticOverridesUrl} found`);
+      if (debugMode) addDebugMessage('[OVRD] no static-sprite-overrides.json found');
     }
   } catch (e) {
     if (debugMode) addDebugMessage(`[OVRD] static load failed: ${e.message}`);
