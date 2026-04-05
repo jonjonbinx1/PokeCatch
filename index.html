@@ -3,134 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PokeCatch Overlay</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles.css" />
+    <title>PokeCatch Overlay (DS scale)</title>
+    <style>
+      :root { --ds-width: 256; --ds-height: 192; }
+      html,body { height:100%; margin:0; background:transparent; }
+      .ds-wrapper { width:100%; height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+      .ds-viewport { width: calc(var(--ds-width) * 1px); height: calc(var(--ds-height) * 1px); transform-origin:center center; will-change: transform; }
+      .ds-viewport iframe { width:100%; height:100%; border:0; display:block; background: transparent; }
+    </style>
   </head>
   <body>
-    <main class="overlay-shell">
-      <section class="status-strip" aria-live="polite">
-        <div class="status-pill">
-          <span class="status-label">Channel</span>
-          <strong id="channelName">Waiting for URL parameter</strong>
-        </div>
-        <div class="status-pill">
-          <span class="status-label">Chat</span>
-          <strong id="connectionState">Idle</strong>
-        </div>
-      </section>
+    <div class="ds-wrapper">
+      <div class="ds-viewport" id="dsViewport">
+        <iframe id="dsFrame" src="./ds.html" allow="clipboard-write"></iframe>
+      </div>
+    </div>
 
-      <aside id="debugPanel" class="debug-panel hidden" aria-live="polite" aria-hidden="true">
-        <div class="debug-header">Debug Chat</div>
-        <div class="debug-messages" id="debugMessages" role="log"></div>
-      </aside>
+    <script>
+      (function(){
+        const viewport = document.getElementById('dsViewport');
+        const frame = document.getElementById('dsFrame');
+        const dsWidthBase = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ds-width')) || 256;
+        const dsHeightBase = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ds-height')) || 192;
 
-      <aside id="tunePanel" class="tune-panel hidden" aria-hidden="true">
-        <div class="tune-header">Tuning Panel</div>
-        <div class="tune-body">
-          <div class="tune-row">
-            <div class="tune-meta">
-              <div class="tune-slug" id="tuneSlug">-</div>
-              <div class="tune-index" id="tuneIndex">0/0</div>
-            </div>
-          </div>
+        // allow overriding the window scale via query param; default to 5x
+        const pageParams = new URLSearchParams(window.location.search);
+        const dsModeParam = pageParams.get('ds') ?? pageParams.get('ds-mode');
+        const dsDisabled = dsModeParam !== null && ['0', 'false', 'off', 'no'].includes(dsModeParam.trim().toLowerCase());
+        const dsWindowScale = Math.max(1, parseFloat(pageParams.get('dsWindowScale') || pageParams.get('ds-window-scale')) || 5);
+        let params = window.location.search || '';
+        const hash = window.location.hash || '';
 
-          <div class="tune-row">
-            <label class="tune-label" for="tunePokemonInput">Pokemon</label>
-            <div class="tune-picker">
-              <input
-                type="text"
-                id="tunePokemonInput"
-                class="tune-text"
-                list="tunePokemonList"
-                placeholder="pikachu"
-                spellcheck="false"
-              />
-              <datalist id="tunePokemonList"></datalist>
-              <button id="tuneJump" class="btn" type="button">Show</button>
-            </div>
-          </div>
+        if (dsDisabled) {
+          window.location.replace('./ds.html' + params + hash);
+          return;
+        }
 
-          <div class="tune-row tune-save-row">
-            <div class="tune-save-status" id="tuneSaveStatus">
-              Connect the project folder to save overrides directly.
-            </div>
-            <button id="tuneConnectFolder" class="btn subtle" type="button">Connect Folder</button>
-          </div>
+        const viewportWidth = dsWidthBase * dsWindowScale;
+        const viewportHeight = dsHeightBase * dsWindowScale;
 
-          <label class="tune-label">Width
-            <input type="range" id="tuneWidthRange" min="0" max="800" step="1" />
-            <input type="number" id="tuneWidthNum" min="0" max="2000" class="tune-num" />
-          </label>
+        // set the ds-viewport element size to the scaled window size
+        if (viewport) {
+          viewport.style.width = viewportWidth + 'px';
+          viewport.style.height = viewportHeight + 'px';
+        }
 
-          <label class="tune-label">Offset X
-            <input type="range" id="tuneOffsetXRange" min="-400" max="400" step="1" />
-            <input type="number" id="tuneOffsetXNum" class="tune-num" />
-          </label>
+        // forward current location query/hash into the iframe so ds.html gets ?channel=...
+        if (frame) {
+          if (!params) {
+            params = '?dsWindowScale=' + encodeURIComponent(String(dsWindowScale));
+          } else {
+            // ensure dsWindowScale present
+            if (!/[?&]dsWindowScale(=|&|$)/.test(params) && !/[?&]ds-window-scale(=|&|$)/.test(params)) {
+              params = params + '&dsWindowScale=' + encodeURIComponent(String(dsWindowScale));
+            }
+          }
+          frame.src = './ds.html' + params + hash;
+        }
 
-          <label class="tune-label">Offset Y
-            <input type="range" id="tuneOffsetYRange" min="-400" max="400" step="1" />
-            <input type="number" id="tuneOffsetYNum" class="tune-num" />
-          </label>
-
-          <div class="tune-actions">
-            <button id="tuneReplay" class="btn" type="button">Replay</button>
-            <button id="tunePrev" class="btn" type="button">Prev</button>
-            <button id="tuneSaveNext" class="btn primary" type="button">Save &amp; Next</button>
-            <button id="tuneNext" class="btn" type="button">Next</button>
-          </div>
-        </div>
-      </aside>
-
-      <section class="setup-card" id="setupCard">
-        <p class="setup-kicker">OBS Browser Source</p>
-        <h1>Pokemon Community Game Encounter Overlay</h1>
-        <p>
-          Add your Twitch name in the URL to connect the overlay to your chat.
-        </p>
-        <code class="setup-example">?channel=your_twitch_name</code>
-        <p class="setup-note">
-          <span>Accepted aliases:</span> <code>?user=</code> and
-          <code>?username=</code>
-        </p>
-      </section>
-
-      <section class="battle-scene hidden" id="battleScene" aria-live="assertive">
-        <div class="battle-backdrop">
-          <div class="sky-glow"></div>
-          <div class="battle-message" id="battleMessage">A wild Pokemon appeared!</div>
-
-          <div class="opponent-panel panel-frame">
-            <div class="panel-header">
-              <span class="pokemon-name" id="pokemonName">Pokemon</span>
-              <span class="pokemon-level" id="pokemonLevel">Lv. 12</span>
-            </div>
-            <div class="hp-row">
-              <span class="hp-tag">HP</span>
-              <div class="hp-meter">
-                <div class="hp-fill" id="hpFill"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="opponent-anchor">
-            <div class="battle-platform platform-opponent"></div>
-            <img
-              class="pokemon-sprite"
-              id="pokemonSprite"
-              alt="Encountered Pokemon"
-              src=""
-            />
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <script type="module" src="./app.js"></script>
+        function resize() {
+          const wrapper = viewport.parentElement;
+          const maxW = wrapper.clientWidth;
+          const maxH = wrapper.clientHeight;
+          // allow upscaling freely (no cap)
+          const scale = Math.min(maxW / viewportWidth, maxH / viewportHeight);
+          viewport.style.transform = 'scale(' + scale + ')';
+        }
+        window.addEventListener('resize', resize);
+        window.addEventListener('orientationchange', resize);
+        resize();
+      })();
+    </script>
   </body>
 </html>

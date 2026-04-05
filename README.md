@@ -2,12 +2,14 @@
 
 Static OBS browser-source overlay for Pokemon Community Game encounter messages on Twitch chat.
 
+The default entry now uses the DS-style layout. Add `?ds=0` to open the older full-size scene instead.
+
 ## What it does
 
 - Connects to a Twitch channel's chat directly in the browser with `tmi.js`
 - Watches for wild-Pokemon encounter style messages
 - Looks up the Pokemon in PokeAPI to get its numeric ID
-- Renders a Gen 3-inspired battle scene with the sprite from the PokeAPI sprites repository
+- Renders a DS-style battle scene by default with the sprite from the PokeAPI sprites repository
 - Works as a plain static site, so it can be hosted on GitHub Pages
 
 ## URL parameters
@@ -21,6 +23,7 @@ Use one of these query parameters when you add the page to OBS:
 Optional flags:
 
 - `?animated=true` — use animated GIF sprites from Pokemon Showdown when available. The overlay will try `https://play.pokemonshowdown.com/sprites/ani/{pokemon-name}.gif` and fall back to the static PokeAPI sprite if the GIF is missing.
+- `?ds=0` — disable the default DS layout and use the older full-size scene.
 
 Example with animation and debug:
 

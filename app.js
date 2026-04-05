@@ -35,6 +35,41 @@ if (spriteSizeParam) {
   if (!Number.isNaN(n) && isFinite(n) && n > 8 && n < 1600) spriteSize = n;
 }
 
+// optional: allow callers to disable loading/applying sprite override JSON via URL
+const disableOverrides =
+  urlParams.get("disableOverrides") === "1" ||
+  urlParams.get("disable-overrides") === "1" ||
+  urlParams.get("noOverrides") === "1" ||
+  urlParams.get("no-overrides") === "1";
+
+// DS mode is now the default layout. Pass ?ds=0 to force the older full-size scene.
+const dsModeParam = urlParams.get("ds") ?? urlParams.get("ds-mode");
+const dsMode = dsModeParam === null
+  ? true
+  : !["0", "false", "off", "no"].includes(dsModeParam.trim().toLowerCase());
+if (dsMode && typeof document !== "undefined" && document.documentElement) {
+  document.documentElement.classList.add("ds-mode");
+}
+
+// if the window/viewport is being scaled (e.g. dsWindowScale=2), apply an inverse
+// inner scale so UI elements remain their original sizes. This will set a CSS
+// variable `--ds-inner-scale` that `styles.css` uses to scale the overlay.
+const dsWindowScaleParam = urlParams.get('dsWindowScale') || urlParams.get('ds-window-scale');
+if (dsWindowScaleParam) {
+  const n = parseFloat(dsWindowScaleParam);
+  if (!Number.isNaN(n) && isFinite(n) && n > 0) {
+    // Do not inverse-scale the inner UI; keep inner scale at 1 so increasing the
+    // outer viewport actually makes the visuals larger instead of smaller.
+    const innerScale = 1;
+    try {
+      document.documentElement.style.setProperty('--ds-inner-scale', String(innerScale));
+      if (debugMode) addDebugMessage(`[DS] set inner scale ${innerScale} for dsWindowScale=${n}`);
+    } catch (e) {
+      // ignore if DOM not ready
+    }
+  }
+}
+
 // optional: allow callers to control sprite offsets via ?spriteOffsetX=NN&spriteOffsetY=NN (pixels)
 const spriteOffsetXParam =
   urlParams.get("spriteOffsetX") || urlParams.get("sprite-offset-x") || urlParams.get("offsetX") || urlParams.get("x");
@@ -339,6 +374,12 @@ async function fetchJsonWithFallback(urls) {
 }
 
 async function loadSpriteOverrides() {
+  if (disableOverrides) {
+    spriteOverrides = {};
+    staticSpriteOverrides = {};
+    if (debugMode) addDebugMessage('[OVRD] sprite overrides disabled via URL param');
+    return;
+  }
   let baseUrl = null;
   if (typeof import.meta !== "undefined" && import.meta.url) {
     baseUrl = new URL(".", import.meta.url).href;
@@ -399,6 +440,7 @@ async function loadSpriteOverrides() {
 
 function getOverrideFor(slug, isAnimated = false) {
   if (!slug) return null;
+  if (disableOverrides) return null;
   const key = String(slug).toLowerCase();
   if (!isAnimated && staticSpriteOverrides && staticSpriteOverrides[key]) {
     return staticSpriteOverrides[key];
@@ -718,11 +760,16 @@ function applySpriteSizing(slug, img, wrap, isAnimated = false) {
     const nh = img.naturalHeight || img.height;
     if (!(nw && nh)) return;
 
-    const targetH = Math.min(220, Math.round(bdH * 0.32));
-    const scale = Math.min(1, targetH / nh);
+    // Choose a target display height based on the backdrop height and allow
+    // proportional scaling as the viewport grows. Use reasonable clamps to
+    // avoid extremely tiny or huge sprites.
+    const targetH = Math.max(48, Math.round(bdH * 0.32));
+    // Allow up/down scaling but clamp between 0.5x and 3x the natural size
+    // so sprites remain visible but not excessively blown-up.
+    const scale = Math.max(0.5, Math.min(3, targetH / nh));
     const displayW = Math.round(nw * scale);
     wrap.style.width = `${displayW}px`;
-    if (debugMode) addDebugMessage(`[SIZE] ${slug} nw=${nw} nh=${nh} -> w=${displayW} scale=${scale.toFixed(2)}`);
+    if (debugMode) addDebugMessage(`[SIZE] ${slug} nw=${nw} nh=${nh} -> w=${displayW} scale=${scale.toFixed(2)} targetH=${targetH}`);
   } catch (e) {
     if (debugMode) addDebugMessage(`[SIZE] error ${e.message}`);
   }
@@ -837,6 +884,15 @@ function renderEncounter(pokemon, encounter) {
     // Detect whether the loaded image is actually animated (GIF) or static (PNG)
     const src = (dom.pokemonSprite && dom.pokemonSprite.src) ? String(dom.pokemonSprite.src).toLowerCase() : '';
     const isSpriteAnimated = src.endsWith('.gif') || src.includes('/ani/');
+
+    // Only pixelate animated sprites; static PNGs should render with smoothing
+    try {
+      if (dom.pokemonSprite && dom.pokemonSprite.classList) {
+        if (isSpriteAnimated) dom.pokemonSprite.classList.add('pixelated');
+        else dom.pokemonSprite.classList.remove('pixelated');
+      }
+    } catch (e) { /* ignore */ }
+
     applySpriteSizing(slug, dom.pokemonSprite, wrap, isSpriteAnimated);
 
     // If time already expired while loading, skip rendering
@@ -1119,6 +1175,7 @@ function hideScene() {
   if (dom.pokemonSprite) {
     dom.pokemonSprite.onerror = null;
     dom.pokemonSprite.onload = null;
+    try { if (dom.pokemonSprite.classList) dom.pokemonSprite.classList.remove('pixelated'); } catch (e) { }
     dom.pokemonSprite.src = "";
     const wrap = dom.pokemonSprite.parentElement && dom.pokemonSprite.parentElement.classList && dom.pokemonSprite.parentElement.classList.contains('pokemon-sprite-wrap')
       ? dom.pokemonSprite.parentElement
@@ -1693,7 +1750,7 @@ async function init() {
 
   const sanitizedChannel = channel.trim().replace(/^#/, "").toLowerCase();
   dom.channelName.textContent = sanitizedChannel;
-  document.title = `${sanitizedChannel} · PokeCatch Overlay`;
+  document.title = `${sanitizedChannel} · PokeCatch Overlay${dsMode ? " (DS)" : ""}`;
   if (demoMode) {
     window.setTimeout(() => {
       if (demoPokemon) simulateEncounter(demoPokemon);
