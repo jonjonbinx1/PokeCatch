@@ -853,7 +853,9 @@ function renderEncounter(pokemon, encounter) {
   currentEncounter = {
     pokemon,
     displayName,
-    message: (encounter && encounter.message) || `A WILD ${displayName.toUpperCase()} APPEARED`,
+    // Always show only the canonical encounter headline; ignore any extra text
+    // that may be included in the original bot message.
+    message: `A WILD ${displayName.toUpperCase()} APPEARED`,
     decisionOccurred: false,
     receivedAt: encounter && encounter.receivedAt ? encounter.receivedAt : performance.now(),
     durationMs: encounter && encounter.durationMs ? encounter.durationMs : countdownDuration,
