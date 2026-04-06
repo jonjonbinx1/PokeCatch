@@ -24,7 +24,9 @@
   /* battle message (large headline) */
   --battle-message-size: 128px;
   /* pokemon name size */
-  --pokemon-name-size: 36px;
+  --pokemon-name-size: 32px;
+  /* scale applied to the displayed pokemon name (use 0.66 for 66%) */
+  --pokemon-name-scale: 0.66;
   /* battle message width (used by message and opponent panel) */
   --battle-message-width: min(1920px, calc(100% - 44px));
 }
@@ -318,21 +320,23 @@ body {
 }
 
 .opponent-panel {
-  top: 8%;
-  left: 50%;
-  transform: translateX(-50%);
+  /* place near the top-left corner with a small padding */
+  top: 12px;
+  left: 12px;
+  transform: none;
 }
 
-/* Make the opponent panel (name + HP) span the same width as the battle message */
+/* Make the opponent panel (name + HP) a bit smaller and anchor to the corner */
 .opponent-panel.panel-frame {
-  width: var(--battle-message-width);
-  max-width: var(--battle-message-width);
+  /* increased to 1.25x current measured width (approx 334px) */
+  width: 334px;
+  max-width: 334px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 12px;
-  /* keep existing visual padding (override if needed) */
-  padding: 16px 18px;
+  gap: 8px;
+  /* reduce padding so the corner sits close to screen edge */
+  padding: 10px 12px;
 }
 
 /* Ensure header uses full width and keeps name/level spacing */
@@ -346,14 +350,15 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
 .opponent-panel .hp-row .hp-meter {
-  flex: 1;
+  /* make HP meter 25% wider relative to available space */
+  flex: 1.25 1 0%;
   width: 0; /* flex will grow it */
   min-width: 0;
 }
@@ -368,7 +373,7 @@ body {
 
 .pokemon-name {
   font-family: "Press Start 2P", monospace;
-  font-size: var(--pokemon-name-size) !important;
+  font-size: calc(var(--pokemon-name-size) * var(--pokemon-name-scale)) !important;
   line-height: 1.45;
   text-transform: uppercase;
 }
@@ -378,22 +383,37 @@ body {
   font-size: clamp(10px, 0.95vw, 12px);
 }
 
+/* Make the name occupy ~75% of the header and truncate if too long */
+.panel-header .pokemon-name {
+  flex: 0 0 65%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.panel-header .pokemon-level {
+  flex: 0 0 auto;
+}
+
 .hp-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .hp-tag {
   font-family: "Press Start 2P", monospace;
-  font-size: 10px;
+  font-size: 9px;
 }
 
 .hp-meter {
   position: relative;
-  flex: 1;
-  height: 18px;
-  border: 3px solid #3e4825;
+  /* make HP meter 25% wider relative to available space */
+  flex: 1.25 1 0%;
+  /* reduced ~25% for a smaller visual footprint */
+  height: 14px;
+  border: 2px solid #3e4825;
   border-radius: 999px;
   background: #283312;
   overflow: hidden;
@@ -680,17 +700,19 @@ body {
 
   /* ensure opponent panel matches the battle message width in DS-mode too */
   html.ds-mode .opponent-panel.panel-frame {
-    width: var(--battle-message-width) !important;
-    padding: 12px 16px !important;
+    /* increased to 1.25x current measured width (approx 334px) */
+    width: 334px !important;
+    padding: 10px 12px !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
     gap: 8px !important;
   }
 
-  html.ds-mode .pokemon-name { font-size: 28px !important; }
+  html.ds-mode .pokemon-name { font-size: calc(28px * var(--pokemon-name-scale)) !important; }
   html.ds-mode .pokemon-level { font-size: 16px !important; }
-  html.ds-mode .hp-meter { height: 24px !important; }
+  /* reduce HP meter height in DS-mode to match requested smaller box */
+  html.ds-mode .hp-meter { height: 14px !important; }
 
   html.ds-mode .opponent-anchor .platform-opponent {
     width: 195px !important;
@@ -714,16 +736,17 @@ body {
 
   /* DS-mode: force opponent panel to align with the anchor/pokemon center
      and ensure the panel width matches the battle message area. */
+  /* pin the opponent panel near the top-left corner with light padding */
   html.ds-mode .opponent-panel {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    top: 8% !important;
+    left: 12px !important;
+    top: 12px !important;
+    transform: none !important;
   }
 
   html.ds-mode .opponent-panel.panel-frame {
-    width: calc(100% - 44px) !important;
-    max-width: calc(100% - 44px) !important;
-    padding: 12px 16px !important;
+    width: 334px !important;
+    max-width: 334px !important;
+    padding: 10px 12px !important;
     box-sizing: border-box !important;
   }
 

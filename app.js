@@ -109,6 +109,41 @@ spriteOffsetYAnimated = parseOffsetParam(spriteOffsetYAnimatedParam);
 spriteOffsetXStatic = parseOffsetParam(spriteOffsetXStaticParam);
 spriteOffsetYStatic = parseOffsetParam(spriteOffsetYStaticParam);
 
+// Cries: enabled by default; disable with ?cries=false or ?cries=0
+const criesParam = urlParams.get("cries");
+let criesEnabled = true;
+if (criesParam !== null) {
+  const v = String(criesParam).trim().toLowerCase();
+  if (["0", "false", "no"].includes(v)) criesEnabled = false;
+}
+if (debugMode && !criesEnabled) addDebugMessage('[CRY] cries disabled via URL param');
+
+// Cry volume: default 50% and URL-configurable.
+// Accepts `?volume=NN`, `?vol=NN`, or toggle-style keys like `?volume50`.
+let cryVolume = 0.5;
+function parseVolumeValue(val) {
+  if (val === null || val === undefined) return null;
+  const s = String(val).trim().replace(/%$/, '');
+  const n = parseInt(s, 10);
+  if (Number.isNaN(n) || !isFinite(n)) return null;
+  const clamped = Math.max(0, Math.min(100, n));
+  return clamped / 100;
+}
+let parsedVolume = null;
+const volParam = urlParams.get('volume') || urlParams.get('vol');
+if (volParam !== null) parsedVolume = parseVolumeValue(volParam);
+if (parsedVolume === null) {
+  for (const k of urlParams.keys()) {
+    const m = k.match(/^volume(\d{1,3})$/i) || k.match(/^vol(\d{1,3})$/i);
+    if (m) {
+      const n = parseInt(m[1] || m[2], 10);
+      if (!Number.isNaN(n)) { parsedVolume = Math.max(0, Math.min(100, n)) / 100; break; }
+    }
+  }
+}
+if (parsedVolume !== null) cryVolume = parsedVolume;
+if (debugMode) addDebugMessage(`[CRY] volume set to ${Math.round(cryVolume * 100)}%`);
+
 const encounterPatterns = [
   /(?:a\s+wild|wild)\s+(.+?)\s+(?:appeared|has appeared|appears|spawned)\b/i,
   /you encountered\s+(?:a\s+)?wild\s+(.+?)(?:[!.]|$)/i,
@@ -294,6 +329,53 @@ function pickHpColor(percent) {
     return 'linear-gradient(90deg, #f0ea8a, #d7c84c)';
   }
   return 'linear-gradient(90deg, #88d95d, #60b847)';
+}
+
+let currentCryAudio = null;
+
+async function playCryForSlug(slug) {
+  if (!criesEnabled) return;
+  if (!slug) return;
+  // Prefer local proxy when available to avoid CORS problems
+  const candidates = [];
+  if (localSaveBaseUrl) {
+    candidates.push(`${localSaveBaseUrl}/__proxy/cry/${slug}.mp3`);
+    candidates.push(`${localSaveBaseUrl}/__proxy/cry/${slug}.ogg`);
+  }
+  // fallback to remote host (may be blocked by CORS in browsers)
+  candidates.push(`https://play.pokemonshowdown.com/audio/cries/${slug}.mp3`);
+  candidates.push(`https://play.pokemonshowdown.com/audio/cries/${slug}.ogg`);
+
+  for (const url of candidates) {
+    try {
+      stopCry();
+      const audio = new Audio(url);
+      audio.preload = 'auto';
+      audio.volume = cryVolume;
+      // attempt to play; some browsers may block autoplay without user gesture
+      await audio.play();
+      currentCryAudio = audio;
+      if (debugMode) addDebugMessage(`[CRY] playing ${url}`);
+      return;
+    } catch (e) {
+      if (debugMode) addDebugMessage(`[CRY] failed ${url}: ${e && e.message ? e.message : e}`);
+      // try next candidate
+      continue;
+    }
+  }
+}
+
+function stopCry() {
+  try {
+    if (currentCryAudio) {
+      try { currentCryAudio.pause(); } catch (e) { }
+      try { currentCryAudio.currentTime = 0; } catch (e) { }
+      try { currentCryAudio.src = ''; } catch (e) { }
+      currentCryAudio = null;
+    }
+  } catch (e) {
+    if (debugMode) addDebugMessage(`[CRY] stop failed: ${e && e.message ? e.message : e}`);
+  }
 }
 
 function setHpPercent(pct) {
@@ -921,6 +1003,15 @@ function renderEncounter(pokemon, encounter) {
     dom.battleScene.className = "battle-scene";
     dom.battleScene.hidden = false;
 
+    // Play the Pokemon cry as it appears (non-blocking)
+    try {
+      if (typeof playCryForSlug === 'function') {
+        playCryForSlug(slug).catch((e) => { if (debugMode) addDebugMessage(`[CRY] ${e && e.message ? e.message : e}`); });
+      }
+    } catch (e) {
+      if (debugMode) addDebugMessage(`[CRY] play call failed: ${e && e.message ? e.message : e}`);
+    }
+
     // restart the animation on the image
     dom.pokemonSprite.style.animation = "none";
     void dom.pokemonSprite.offsetWidth;
@@ -1174,6 +1265,7 @@ function hideScene() {
   dom.battleScene.hidden = true;
   // show the setup card only when no channel has been configured
   dom.setupCard.style.display = channel ? "none" : "";
+  stopCry();
   setHpPercent(100);
   dom.battleMessage.classList.remove("caught", "escaped");
 
@@ -1190,8 +1282,8 @@ function hideScene() {
       wrap.style.width = "";
       wrap.style.transform = "";
     }
-    // reset HP fill to full
-    try { setHpPercent(100); } catch (e) { }
+    // reset HP fill to full and stop any playing cry
+    try { stopCry(); setHpPercent(100); } catch (e) { }
   }
 
   currentEncounter = null;
