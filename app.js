@@ -288,14 +288,23 @@ function parseDurationFromMessage(message) {
 
 function pickHpColor(percent) {
   if (percent <= 25) {
-    return "linear-gradient(90deg, #ff9672, var(--hp-low))";
+    return 'linear-gradient(90deg, #ff9672, #d95d3d)';
   }
-
   if (percent <= 50) {
-    return "linear-gradient(90deg, #f0ea8a, var(--hp-mid))";
+    return 'linear-gradient(90deg, #f0ea8a, #d7c84c)';
   }
+  return 'linear-gradient(90deg, #88d95d, #60b847)';
+}
 
-  return "linear-gradient(90deg, #88d95d, var(--hp-high))";
+function setHpPercent(pct) {
+  try {
+    const clamped = Math.max(0, Math.min(100, Number(pct) || 0));
+    if (!dom.hpFill) return;
+    dom.hpFill.style.width = `${clamped}%`;
+    dom.hpFill.style.background = pickHpColor(clamped);
+  } catch (e) {
+    if (debugMode) addDebugMessage(`[HP] set failed: ${e.message}`);
+  }
 }
 
 async function fetchPokemonData(rawName) {
@@ -763,7 +772,7 @@ function applySpriteSizing(slug, img, wrap, isAnimated = false) {
     // Choose a target display height based on the backdrop height and allow
     // proportional scaling as the viewport grows. Use reasonable clamps to
     // avoid extremely tiny or huge sprites.
-    const targetH = Math.max(48, Math.round(bdH * 0.32));
+    const targetH = Math.max(48, Math.round(bdH * 0.32 * 1.33));
     // Allow up/down scaling but clamp between 0.5x and 3x the natural size
     // so sprites remain visible but not excessively blown-up.
     const scale = Math.max(0.5, Math.min(3, targetH / nh));
@@ -797,7 +806,7 @@ function queueEncounter(encounter) {
   }
 }
 
-function simulateEncounter(name = "pikachu", message = "A wild Pikachu appeared!") {
+function simulateEncounter(name = "pikachu", message = null) {
   const durationMs = parseDurationFromMessage(message);
   const receivedAt = performance.now();
   queueEncounter({
@@ -844,7 +853,7 @@ function renderEncounter(pokemon, encounter) {
   currentEncounter = {
     pokemon,
     displayName,
-    message: (encounter && encounter.message) || `A wild ${displayName} appeared!`,
+    message: (encounter && encounter.message) || `A WILD ${displayName.toUpperCase()} APPEARED`,
     decisionOccurred: false,
     receivedAt: encounter && encounter.receivedAt ? encounter.receivedAt : performance.now(),
     durationMs: encounter && encounter.durationMs ? encounter.durationMs : countdownDuration,
@@ -866,8 +875,7 @@ function renderEncounter(pokemon, encounter) {
   const elapsed = now - currentEncounter.receivedAt;
   const remaining = Math.max(0, currentEncounter.durationMs - elapsed);
   const initialPct = currentEncounter.durationMs > 0 ? Math.max(0, 100 * (remaining / currentEncounter.durationMs)) : 0;
-  dom.hpFill.style.width = `${initialPct}%`;
-  dom.hpFill.style.background = pickHpColor(initialPct);
+  setHpPercent(initialPct);
 
   // clear any expiry timer now that we're rendering
   if (encounter && encounter._expiryTimer) {
@@ -1080,8 +1088,7 @@ function startHpCountdown(totalDurationMs, startTs) {
   function tick(now) {
     const elapsed = now - countdownStartTs;
     const pct = Math.max(0, 100 * (1 - elapsed / countdownDuration));
-    dom.hpFill.style.width = `${pct}%`;
-    dom.hpFill.style.background = pickHpColor(pct);
+    setHpPercent(pct);
 
     if (pct <= 0) {
       countdownActive = false;
@@ -1096,8 +1103,7 @@ function startHpCountdown(totalDurationMs, startTs) {
   // initialize to current percentage immediately (avoid flicker)
   const now = performance.now();
   const initPct = Math.max(0, 100 * (1 - (now - countdownStartTs) / countdownDuration));
-  dom.hpFill.style.width = `${initPct}%`;
-  dom.hpFill.style.background = pickHpColor(initPct);
+  setHpPercent(initPct);
 
   countdownRaf = requestAnimationFrame(tick);
 }
@@ -1130,8 +1136,7 @@ function applyDecision(type, by) {
   function animate(now) {
     const t = Math.min(1, (now - startTs) / animDuration);
     const newPct = Math.max(0, currentPct * (1 - t));
-    dom.hpFill.style.width = `${newPct}%`;
-    dom.hpFill.style.background = pickHpColor(newPct);
+    setHpPercent(newPct);
 
     if (t < 1) {
       requestAnimationFrame(animate);
@@ -1167,8 +1172,7 @@ function hideScene() {
   dom.battleScene.hidden = true;
   // show the setup card only when no channel has been configured
   dom.setupCard.style.display = channel ? "none" : "";
-  dom.hpFill.style.width = "100%";
-  dom.hpFill.style.background = pickHpColor(100);
+  setHpPercent(100);
   dom.battleMessage.classList.remove("caught", "escaped");
 
   // clear sprite and handlers to stop any GIF animation and avoid stale handlers
@@ -1184,6 +1188,8 @@ function hideScene() {
       wrap.style.width = "";
       wrap.style.transform = "";
     }
+    // reset HP fill to full
+    try { setHpPercent(100); } catch (e) { }
   }
 
   currentEncounter = null;
@@ -1591,7 +1597,7 @@ async function init() {
       renderEncounter(pokemon, {
         name: rawName,
         sender: 'tuning',
-        message: `A wild ${formatDisplayName(pokemon.displayName || pokemon.name)} appeared!`,
+        message: `A WILD ${formatDisplayName(pokemon.displayName || pokemon.name).toUpperCase()} APPEARED`,
         durationMs: countdownDuration,
         receivedAt: performance.now(),
       });

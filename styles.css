@@ -19,6 +19,14 @@
   /* per-sprite translation offsets (x = left/right, y = up/down) */
   --pokemon-sprite-offset-x: 0px;
   --pokemon-sprite-offset-y: 0px;
+  /* global UI text size (matches `.pokemon-name`) */
+  --ui-text-size: 22px;
+  /* battle message (large headline) */
+  --battle-message-size: 128px;
+  /* pokemon name size */
+  --pokemon-name-size: 36px;
+  /* battle message width (used by message and opponent panel) */
+  --battle-message-width: min(1920px, calc(100% - 44px));
 }
 
 * {
@@ -31,6 +39,11 @@ body {
   min-height: 100%;
   background: transparent;
   color: #ffffff;
+}
+
+/* Force all UI text to match the Pokemon name size */
+html, body, body * {
+  font-size: var(--ui-text-size) !important;
 }
 
 body {
@@ -270,16 +283,25 @@ body {
   left: 50%;
   bottom: 4.8%;
   transform: translateX(-50%);
-  width: min(760px, calc(100% - 44px));
-  min-height: 104px;
-  padding: 18px 22px;
+  width: var(--battle-message-width);
+  min-height: calc(var(--battle-message-size) * 2 + 64px);
+  padding: 28px 40px;
   border: 6px solid var(--frame-dark);
   border-radius: 16px;
   background: linear-gradient(180deg, var(--frame-light), #ebe0a9);
   color: var(--ui-ink);
   box-shadow: inset 0 0 0 4px #fffdf1;
-  font-size: clamp(26px, 2.2vw, 36px);
-  line-height: 1.15;
+  font-size: var(--battle-message-size) !important;
+  font-weight: 900 !important;
+  font-family: "Press Start 2P", monospace !important;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: normal;
+  overflow-wrap: break-word;
   z-index: 8;
 }
 
@@ -296,8 +318,44 @@ body {
 }
 
 .opponent-panel {
-  top: 10%;
-  left: 7%;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Make the opponent panel (name + HP) span the same width as the battle message */
+.opponent-panel.panel-frame {
+  width: var(--battle-message-width);
+  max-width: var(--battle-message-width);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  /* keep existing visual padding (override if needed) */
+  padding: 16px 18px;
+}
+
+/* Ensure header uses full width and keeps name/level spacing */
+.opponent-panel .panel-header {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+/* HP row inside opponent panel: keep row direction so the meter grows horizontally */
+.opponent-panel .hp-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.opponent-panel .hp-row .hp-meter {
+  flex: 1;
+  width: 0; /* flex will grow it */
+  min-width: 0;
 }
 
 .panel-header {
@@ -310,7 +368,7 @@ body {
 
 .pokemon-name {
   font-family: "Press Start 2P", monospace;
-  font-size: clamp(10px, 1vw, 14px);
+  font-size: var(--pokemon-name-size) !important;
   line-height: 1.45;
   text-transform: uppercase;
 }
@@ -343,10 +401,10 @@ body {
 
 .hp-fill {
   height: 100%;
-  width: 100%;
+  width: 100%; /* JS will override this via inline style */
   border-radius: inherit;
-  background: linear-gradient(90deg, #88d95d, var(--hp-high));
-  transition: width 500ms ease;
+  background: linear-gradient(90deg, #88d95d, #60b847);
+  transition: width 600ms linear;
 }
 
 .battle-platform {
@@ -365,7 +423,7 @@ body {
   bottom: 26%;
   transform: translateX(-50%);
   pointer-events: none;
-  z-index: 7;
+  z-index: 10;
 }
 
 .opponent-anchor .platform-opponent {
@@ -387,7 +445,7 @@ body {
   width: calc(var(--pokemon-sprite-size) * var(--pokemon-sprite-scale, 1));
   transform: translate(calc(-50% + var(--pokemon-sprite-offset-x)), var(--pokemon-sprite-offset-y));
   pointer-events: none;
-  z-index: 7;
+  z-index: 10;
 }
 
 .pokemon-sprite {
@@ -609,9 +667,9 @@ body {
   }
 
   html.ds-mode .battle-message {
-    font-size: 12px !important;
-    min-height: 40px !important;
-    padding: 6px 8px !important;
+    font-size: 24px !important;
+    min-height: 80px !important;
+    padding: 12px 16px !important;
     bottom: 4% !important;
   }
 
@@ -620,9 +678,19 @@ body {
     padding: 8px 10px !important;
   }
 
-  html.ds-mode .pokemon-name { font-size: 10px !important; }
-  html.ds-mode .pokemon-level { font-size: 9px !important; }
-  html.ds-mode .hp-meter { height: 10px !important; }
+  /* ensure opponent panel matches the battle message width in DS-mode too */
+  html.ds-mode .opponent-panel.panel-frame {
+    width: var(--battle-message-width) !important;
+    padding: 12px 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+
+  html.ds-mode .pokemon-name { font-size: 28px !important; }
+  html.ds-mode .pokemon-level { font-size: 16px !important; }
+  html.ds-mode .hp-meter { height: 24px !important; }
 
   html.ds-mode .opponent-anchor .platform-opponent {
     width: 195px !important;
@@ -642,6 +710,21 @@ body {
   html.ds-mode .opponent-anchor {
     left: 50% !important;
     transform: translateX(-50%) !important;
+  }
+
+  /* DS-mode: force opponent panel to align with the anchor/pokemon center
+     and ensure the panel width matches the battle message area. */
+  html.ds-mode .opponent-panel {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 8% !important;
+  }
+
+  html.ds-mode .opponent-panel.panel-frame {
+    width: calc(100% - 44px) !important;
+    max-width: calc(100% - 44px) !important;
+    padding: 12px 16px !important;
+    box-sizing: border-box !important;
   }
 
   /* Small nudge for sprite-wrap to ensure perfect centering */
